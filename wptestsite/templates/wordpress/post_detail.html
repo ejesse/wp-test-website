@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<h1>{{ post.title }}</h1>
+{{ post.post_date }}
+{% autoescape off %} 
+{{ post.content|linebreaks }}
+{% endautoescape %}
+<p>
+{% for tag in post.tags %}
+<a href="/tag/{{ tag.slug }}">{{ tag }}</a>
+{% endfor %}	
+</p>
+{% endblock %}
